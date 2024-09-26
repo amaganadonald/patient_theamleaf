@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.css">
+</head>
+<body>
+  <div class="container mt-2">
+      <div class="row mt-3">
+          <div class="card col-md-6 offset-3">
+              <div class="card-header text-white bg-success">Connexion</div>
+              <div th:if="${param.error}">
+                  <p class="text-danger">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+              </div>
+              <div th:if="${param.logout}">
+                  <p class="text-warning">You have been logged out.</p>
+              </div>
+              <div class="card-body">
+                  <form method="post" th:action="@{/login}">
+                      <div class="mb-3">
+                          <label for="username" class="form-label">Username</label>
+                          <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+                      </div>
+                      <div class="mb-3">
+                          <label for="password" class="form-label">Password</label>
+                          <input type="password" class="form-control" name="password" id="password">
+                      </div>
+                      <div class="mb-3 form-check">
+                          <input type="checkbox" class="form-check-input" id="remember" name="remember-me">
+                          <label class="form-check-label" for="remember">Remember Me</label>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Login</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
