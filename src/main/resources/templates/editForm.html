@@ -9,7 +9,7 @@
 <body>
 <div layout:fragment="content1">
     <div class="col-md-6 offset-3">
-        <form th:action="@{update(page=${page}, keyword=${keyword})}" method="post">
+        <form th:action="@{update(page=${page}, keyword=${keyword}, id=${patient.id})}" method="post">
             <div>
                 <label for="id">ID</label>
                 <input readonly id="id" class="form-control" type="text" name="id" th:value="${patient.id}">
